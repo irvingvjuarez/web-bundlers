@@ -1,11 +1,13 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+// const styles = require("./src/styles.css")
 
 module.exports = {
 	entry: "./src/index.js",
 	output: {
 		path: path.resolve(__dirname, "dist"),
-		filename: "main.js"
+		filename: "main.js",
+		publicPath: "/"
 	},
 	resolve: {
 		extensions: [".js"]
@@ -18,6 +20,10 @@ module.exports = {
 				use: {
 					loader: "babel-loader"
 				}
+			},
+			{
+				test: /\.css$/i,
+				use: [ "css-loader", "style-loader" ]
 			}
 		]
 	},
