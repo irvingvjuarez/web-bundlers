@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esbuild src/index.tsx --bundle --minify --sourcemap --outfile=public/bundle.js",
+    "dev": "node esbuild.dev.js",
+    "start": "node esbuild.dev.js -w",
+    "open": "wslview public/index.html"
   },
   "keywords": [],
   "author": "Enjolras",
   "license": "ISC",
   "devDependencies": {
-    "esbuild": "^0.17.19"
+    "esbuild": "^0.17.19",
+    "esbuild-serve": "^1.0.1"
   },
   "dependencies": {
     "@types/react": "^18.2.7",
